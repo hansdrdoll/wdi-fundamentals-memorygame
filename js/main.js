@@ -32,19 +32,30 @@ var checkForMatch = function() {
 		}
 };
 
-var flipCard = function(cardID) {
+var flipCard = function() {
+	var cardId = this.getAttribute('data-id');
 	//Display card user selected
-	console.log("user flipped " + cards[cardID].rank);
-	console.log("suit is " + cards[cardID].suit);
-	console.log(cards[cardID].cardImage);
+	console.log("user flipped " + cards[cardId].rank);
+	console.log("suit is " + cards[cardId].suit);
+	console.log(cards[cardId].cardImage);
 	//Add that card to inPlay array
-	cardsInPlay.push(cards[cardID].rank);
+	cardsInPlay.push(cards[cardId].rank);
+
+	this.setAttribute('src', cards[cardId].cardImage);
 
 	if (cardsInPlay.length === 2) {
 		checkForMatch();
 	}
 };
 
-flipCard(0);
+var createBoard = function() {
+	for (var i = 0; i < cards.length; i++) {
+		var cardElement = document.createElement('img');
+		cardElement.setAttribute('src', 'images/back.png');
+		cardElement.setAttribute('data-id', i);
+		cardElement.addEventListener('click', flipCard);
+		document.getElementById('game-board').appendChild(cardElement);
+	}
+}
 
-flipCard(2);
+createBoard();
