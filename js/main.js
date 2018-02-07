@@ -8,7 +8,7 @@ https://www.w3resource.com/javascript-exercises/javascript-array-exercise-17.php
 2. solved!
 3. would be great to add a "matches found" counter but if I don't stop adding
    complexity I'll never eat lunch and I'm submitting this late already
-4. would be great to make the css responsive
+4. would be great to make the css responsive, resize the cards etc
 */
 
 function shuffle(thedeck) {
@@ -56,16 +56,6 @@ var cards = [
 shuffle(cards);
 
 var cardsInPlay = [];
-
-/*
-I thought this would work as
-var resetTimer = window.setTimeout(reset, 4000);
-but it didn't :(
-*/
-//var resetTimer = function() {
-	//don't let the user stare at their failure for very long
-//	setTimeout(reset, 3000);
-//}
 
 var timer;
 
